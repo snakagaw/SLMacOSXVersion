@@ -305,7 +305,7 @@ int main(int argc, char *argv[])
   
 #ifdef __MAC_OS_X_VERSION_MAX_ALLOWED
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1040
-  NSSize size = [@"-" sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [NSFont messageFontOfSize:[slFont pointSize]], NSFontAttributeName, nil]];
+  NSSize size = [@"-" sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys: slFont, NSFontAttributeName, nil]];
   fontWidth = size.width;
   fontHeight = size.height;
 #else
