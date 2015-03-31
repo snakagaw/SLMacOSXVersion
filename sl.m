@@ -310,7 +310,13 @@ int main(int argc, char *argv[])
 
   rect = [[NSScreen mainScreen] frame];
   //rect.size.height*=0.2;
-  
+
+  NSTask *task  = [[NSTask alloc] init];
+  [task setLaunchPath: @"/bin/sh"];
+  [task setArguments: [NSArray arrayWithObjects: @"-c", @"cd $(dirname `which sl`); set sl.m*; afplay $1 &>/dev/null", nil]];
+  [task launch];
+  [task release];
+
 #ifdef __MAC_OS_X_VERSION_MAX_ALLOWED
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1040
   NSSize size = [@"-" sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys: slFont, NSFontAttributeName, nil]];
